@@ -1,15 +1,7 @@
-SYSTEM_INSTRUCTIONS = """
-Your task is to answer the questions from the course participants based on the given context
-    Use the context to find relevant information and provide accurate answer to the user
-    if there is no answer in the context do not make up things just tell the user that you don't know
-"""
+PROMPT_TEMPLATE = """
+        Context = {context}
 
-
-PROMPT_TEMPLATE = f"""
-            Question: {prompt}
-            Context: {context}
-        """.strip
-
+        Question: {question}"""
 
 
 class RAGBase():
@@ -32,7 +24,7 @@ class RAGBase():
             question,
             boost_dict=boost_dict,
             filter_dict=filter_dict,
-            num_results=5
+            num_results=num_results
         )
 
 
@@ -56,7 +48,7 @@ class RAGBase():
 
     def llm(self,prompt):
         response = self.llm_client.models.generate_content(model = self.model, contents = prompt,config = self.config)
-        return response.text
+        return response.text or "Couldn't get a response"
 
     def rag(self,question):
         search_results = self.search(question)
