@@ -7,7 +7,7 @@ PROMPT_TEMPLATE = """
 class RAGBase():
 
     def __init__(self,index,llm_client,config,
-                 prompt_template = PROMPT_TEMPLATE,course = "llm_zoomcamp",model = "gemini-3.5-flash"):
+                 prompt_template = PROMPT_TEMPLATE,course = "llm-zoomcamp",model = "gemini-3.5-flash"):
         self.index = index
         self.llm_client = llm_client
         self.config = config
