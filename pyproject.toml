@@ -1,7 +1,7 @@
 [project]
 name = "llm-zoomcamp"
 version = "0.1.0"
-description = "Add your description here"
+description = "My solutions for DataTalksClub LLM Zoomcamp"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -27,3 +27,7 @@ torch = { index = "pytorch-cpu" }
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"
