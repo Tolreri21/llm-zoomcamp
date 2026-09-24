@@ -1,6 +1,7 @@
 import requests
 from minsearch import Index
 
+
 def ingest_faq_data():
 
     docs_url = "https://datatalks.club/faq/json/courses.json"
@@ -21,11 +22,9 @@ def ingest_faq_data():
 
     return documents
 
+
 def build_index(documents):
-    index = Index(
-        text_fields=["question", "section", "answer"],
-        keyword_fields=["course"]
-    )
+    index = Index(text_fields=["question", "section", "answer"], keyword_fields=["course"])
 
     index.fit(documents)
     return index
